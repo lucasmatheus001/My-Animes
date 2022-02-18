@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2022_02_18_030823) do
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.string "description", null: false
+    t.string "image_url", null: false
     t.string "genres", null: false
     t.integer "episodes", null: false
     t.integer "status", default: 0
