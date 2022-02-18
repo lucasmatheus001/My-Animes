@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_15_031643) do
+ActiveRecord::Schema.define(version: 2022_02_18_030823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "animes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.string "description", null: false
+    t.string "image_url", null: false
+    t.string "genres", null: false
+    t.integer "episodes", null: false
+    t.integer "status", default: 0
+    t.string "studios", null: false
+    t.integer "duration", null: false
+    t.string "situation", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_animes_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +45,5 @@ ActiveRecord::Schema.define(version: 2022_02_15_031643) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "animes", "users"
 end

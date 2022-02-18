@@ -1,0 +1,35 @@
+<h4>Animes</h4><br>
+<%= link_to  "Criar novo", new_anime_path%>
+<%# destroy_user_session_path %>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">desciption</th>
+      <th scope="col">genres</th>
+      <th scope="col">episodes</th>
+      <th scope="col">status</th>
+      <th scope="col">#</th>
+      <th scope="col">#</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @animes.each do |anime| %>
+      
+        <tr>
+          <td><%= anime.id%></td>
+          <td><%= anime.name%></td>
+          <td><%= anime.description%></td>
+          <td><%= anime.genres%></td>
+          <td><%= anime.episodes%></td>
+          <td><%= anime.status%></td>
+          <td><%= link_to("Show",anime) %></td>
+          <td><%= link_to("Deletar",anime_path(anime),method: :delete,data: {confirm: "Are you sure?"})%></td>
+
+        </tr>
+      
+    <% end %>
+  </tbody>
+</table>
