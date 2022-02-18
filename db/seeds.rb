@@ -9,6 +9,6 @@
 u = User.new(name:"Lucas", email: "admin@admin.com", password: "12345678",password_confirmation: "12345678", role: :admin)
 u.save!
 
-u = User.new(name:"Hugo", email: "otaku@otaku.com", password: "12345678",password_confirmation: "12345678", role: :otaku)
+o = User.new(name:"Hugo", email: "otaku@otaku.com", password: "12345678",password_confirmation: "12345678", role: :otaku)
 o.save
 
