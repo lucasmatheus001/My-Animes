@@ -10,8 +10,7 @@
       <th scope="col">genres</th>
       <th scope="col">episodes</th>
       <th scope="col">status</th>
-      <th scope="col">#</th>
-      <th scope="col">#</th>
+      <th scope="col" colspan="4" >Ações</th>
       
     </tr>
   </thead>
@@ -27,7 +26,10 @@
           <td><%= anime.status%></td>
           <td><%= link_to("Show",anime) %></td>
           <td><%= link_to("Deletar",anime_path(anime),method: :delete,data: {confirm: "Are you sure?"})%></td>
+          <td><%= link_to("Seguir",add_follows_path(anime_id: anime.id),method: :post,remote: true)%></td>
+          <td><%= link_to("Favoritar",add_favorite_follows_path(anime_id: anime.id),method: :post,remote: true)%></td>
 
+          <%# <%= link_to(add_favorite_musics_path(music_id: music.id),method: :post,class:"heart-icon") do %>
         </tr>
       
     <% end %>

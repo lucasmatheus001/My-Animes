@@ -1,6 +1,3 @@
-<h4>Follows</h4><br>
-<%= link_to  "Criar novo", new_anime_path%>
-<%# destroy_user_session_path %>
 <table class="table table-dark">
   <thead>
     <tr>
@@ -16,21 +13,20 @@
     </tr>
   </thead>
   <tbody>
-    <% @follows.each do |follow| %>
+    <% @favorites.each do |follow| %>
       
         <tr>
-          <td><%= follow.id%></td>
+          <td><%= follow.anime.id%></td>
           <td><%= follow.anime.name%></td>
           <td><%= follow.anime.description%></td>
           <td><%= follow.anime.genres%></td>
           <td><%= follow.anime.episodes%></td>
           <td><%= follow.anime.status%></td>
           <td><%= link_to("Show",follow.anime) %></td>
-          <td><%= link_to("Deletar",remove_follows_path(follow),method: :delete,data: {confirm: "Are you sure?"})%></td>
+          <td><%= link_to("Deletar",remove_favorite_follows_path(follow),method: :delete,data: {confirm: "Are you sure?"})%></td>
 
         </tr>
       
     <% end %>
   </tbody>
 </table>
-
