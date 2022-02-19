@@ -34,7 +34,7 @@ class AnimesController < ApplicationController
   end
 
   def destroy 
-      @anime.destroy
+      @anime.update(status: "excluido")
       redirect_to animes_path
   end
 
