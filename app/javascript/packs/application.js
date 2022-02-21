@@ -4,9 +4,12 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
+import "@fortawesome/fontawesome-free/css/all"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "../src/header"
+import 'bootstrap'
 
 Rails.start()
 Turbolinks.start()
