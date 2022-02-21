@@ -91,6 +91,9 @@ Por fim, a tela inicial do sistema é uma listagem com todos os Animes cadastrad
 
 ## Executando testes
 
-    rspec --format documentation spec/
-Será gerada uma pasta com a cobertura dos testes em *favorite_books/covarage/index.html*
+    
+    rails db:migrate RAILS_ENV=test
+    rspec 
+Será gerado as migration dos models dos testes existentes e em seguida alguns testes serão rodados.
+    
 
