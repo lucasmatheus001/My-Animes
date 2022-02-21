@@ -19,6 +19,7 @@ Este é uma sistema para gerenciamento de animes , podendo o usuário salvar os 
  5. Bootstrap 5
  6. Devise
  7. Enumerize
+ 8. Testes(Rspec, simpleCov, FactoryBot, Faker)
  
 ## Principais funcionalidades
 
