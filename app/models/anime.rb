@@ -7,7 +7,7 @@ class Anime < ApplicationRecord
 
   # Validations
   validates :name, presence: true,length: { minimum: 5, maximum: 100 }
-  validates :description, presence: true,length: { minimum: 5, maximum: 100 }
+  validates :description, presence: true,length: { minimum: 5, maximum: 1000 }
   validates :genres, presence: true,length: { minimum: 5, maximum: 100 }
   validates :episodes, presence: true
   validates :studios, presence: true,length: { minimum: 5, maximum: 100 }

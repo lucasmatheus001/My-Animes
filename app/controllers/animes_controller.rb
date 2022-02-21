@@ -2,7 +2,7 @@ class AnimesController < ApplicationController
   before_action :set_anime, only: %i[ show edit update destroy ]
 
   def index
-      @animes = Anime.order(id: :desc)
+      @animes = Anime.where(status: "ativo")
   end
 
   def show
@@ -34,7 +34,8 @@ class AnimesController < ApplicationController
   end
 
   def destroy 
-      @anime.update(status: "excluido")
+    #   @anime.destroy
+        @anime.update(status: "excluido")
       redirect_to animes_path
   end
 

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :follows do 
     collection do
-      get 'favorites'
+      get 'favorites', as: :favorites
       post '/add_follow/:anime_id', to: 'follows#add_follow', as: :add
       delete '/remove_follow/:id', to: 'follows#remove_follow', as: :remove
       post '/add_favorite/:anime_id', to: 'follows#add_favorite', as: :add_favorite

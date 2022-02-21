@@ -1,12 +1,11 @@
 class FollowsController < ApplicationController
   def index
-    @follows = Follow.order(id: :desc)
+    @follows = current_user.admin? ?  Follow.order(id: :desc) : current_user.follows.order(id: :desc) 
   end
 
   def favorites
-    @favorites = Follow.where(favorite: true)
+    @favorites = current_user.admin? ? Follow.where(favorite: true) : current_user.follows.where(favorite: true)
   end
-
   def show 
     @follows = Follow.all
   end
@@ -26,7 +25,8 @@ class FollowsController < ApplicationController
   def remove_follow
     @follow = current_user.follows.find_by(id: params[:id])
     @follow.destroy
-    redirect_to follows_path, notice: 'Musica removida com sucesso!'
+    redirect_to follows_path, notice: 'follow removido com sucesso!'
+    @follow.inspect
   end
 
   def add_favorite 
@@ -38,6 +38,7 @@ class FollowsController < ApplicationController
   def remove_favorite
     @follow = current_user.follows.find_by(id: params[:id])
     @follow.update(favorite: false)
+    redirect_to favorites_follows_path, notice: 'favoritos removido com sucesso!'
   end
 
 
