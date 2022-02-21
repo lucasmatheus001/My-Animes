@@ -1,90 +1,92 @@
-<header class="navbar-light navbar-sticky header-static">
-	<!-- Logo Nav START -->
-	<nav class="navbar navbar-expand-xl">
-		<div class="container-fluid px-3 px-xl-5">
-			<!-- Logo START -->
-			<a class="navbar-brand" href="index.html">
-				<h3>My-Animes</h3>
-			</a>
-			<!-- Logo END -->
-
-			<!-- Responsive navbar toggler -->
-			<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-animation">
-					<span></span>
-					<span></span>
-					<span></span>
-				</span>
-			</button>
-
-			<!-- Main navbar START -->
-			<div class="navbar-collapse w-100 collapse" id="navbarCollapse">
-
-				
-
-				<!-- Nav Main menu START -->
-				<ul class="navbar-nav navbar-nav-scroll me-auto">
-					<!-- Nav item 1 Demos -->
-					<li class="nav-item dropdown">
-						<%# <a class="nav-link dropdown-toggle active" href="#" id="demoMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a> %>
-						<%= link_to "Inicio", root_path,class: "nav-link "%>
-					</li>
-
-					<!-- Nav item 2 Pages -->
-					<li class="nav-item dropdown">
-						<%= link_to "Animes", animes_path,class: "nav-link "%>
-					</li>
-
-					<!-- Nav item 3 Account -->
-					<li class="nav-item dropdown">
-						<%= link_to "Favoritos", favorites_follows_path,class: "nav-link "%>
-					</li>
-
-					
-
-					<!-- Nav item 4 Megamenu-->
-					<li class="nav-item dropdown dropdown-fullwidth">
-						<%= link_to "Seguidos", follows_path,class: "nav-link "%>
-					</li>
-
-					<li class="nav-item dropdown">
-						<%= link_to "Usuarios", users_path,class: "nav-link "%>
-					</li>
-
-					
-				</ul>
-				<!-- Nav Main menu END -->
-
-				<!-- Nav Search START -->
-				<div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
-					<div class="nav-item w-100">
-						<form class="position-relative">
-							<input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
-							<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-						</form>
-					</div>
-				</div>
-				<!-- Nav Search END -->
-			</div>
-			<!-- Main navbar END -->
-
-			<!-- Profile START -->
-			<div class="dropdown ms-1 ms-lg-0">
-				
-				<a class="avatar avatar-sm p-0 dropbtn"  id="profileDropdown" role="button" onclick="myFunction()">
-					<img class="avatar-img rounded-circle drop" src="https://eduport.webestica.com/assets/images/avatar/01.jpg" alt="avatar">
+<% if user_signed_in? %>
+	<header class="navbar-light navbar-sticky header-static">
+		<!-- Logo Nav START -->
+		<nav class="navbar navbar-expand-xl">
+			<div class="container-fluid px-3 px-xl-5">
+				<!-- Logo START -->
+				<a class="navbar-brand" href="index.html">
+					<h3>My-Animes</h3>
 				</a>
-				<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3 dropdown-content options" id="options" aria-labelledby="profileDropdown">
-					<!-- Profile info -->
-					<!-- Links -->
-					<li><%= link_to 'Edit User', edit_user_registration_path, class: 'dropdown-item' %></li>
+				<!-- Logo END -->
+
+				<!-- Responsive navbar toggler -->
+				<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-animation">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+				</button>
+
+				<!-- Main navbar START -->
+				<div class="navbar-collapse w-100 collapse" id="navbarCollapse">
+
 					
-					<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'dropdown-item bg-danger-soft-hover' %>
-				</ul></li>
+
+					<!-- Nav Main menu START -->
+					<ul class="navbar-nav navbar-nav-scroll me-auto">
+						<!-- Nav item 1 Demos -->
+						<li class="nav-item dropdown">
+							<%# <a class="nav-link dropdown-toggle active" href="#" id="demoMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a> %>
+							<%= link_to "Inicio", root_path,class: "nav-link "%>
+						</li>
+
+						<!-- Nav item 2 Pages -->
+						<li class="nav-item dropdown">
+							<%= link_to "Animes", animes_path,class: "nav-link "%>
+						</li>
+
+						<!-- Nav item 3 Account -->
+						<li class="nav-item dropdown">
+							<%= link_to "Favoritos", favorites_follows_path,class: "nav-link "%>
+						</li>
+
+						
+
+						<!-- Nav item 4 Megamenu-->
+						<li class="nav-item dropdown dropdown-fullwidth">
+							<%= link_to "Seguidos", follows_path,class: "nav-link "%>
+						</li>
+
+						<li class="nav-item dropdown">
+							<%= link_to "Usuarios", users_path,class: "nav-link "%>
+						</li>
+
+						
+					</ul>
+					<!-- Nav Main menu END -->
+
+					<!-- Nav Search START -->
+					<div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
+						<div class="nav-item w-100">
+							<form class="position-relative">
+								<input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+								<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+							</form>
+						</div>
+					</div>
+					<!-- Nav Search END -->
+				</div>
+				<!-- Main navbar END -->
+
+				<!-- Profile START -->
+				<div class="dropdown ms-1 ms-lg-0">
 					
+					<a class="avatar avatar-sm p-0 dropbtn"  id="profileDropdown" role="button" onclick="myFunction()">
+						<img class="avatar-img rounded-circle drop" src="https://eduport.webestica.com/assets/images/avatar/01.jpg" alt="avatar">
+					</a>
+					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3 dropdown-content options" id="options" aria-labelledby="profileDropdown">
+						<!-- Profile info -->
+						<!-- Links -->
+						<li><%= link_to 'Edit User', edit_user_registration_path, class: 'dropdown-item' %></li>
+						
+						<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'dropdown-item bg-danger-soft-hover' %>
+					</ul></li>
+						
+				</div>
+				<!-- Profile START -->
 			</div>
-			<!-- Profile START -->
-		</div>
-	</nav>
-	<!-- Logo Nav END -->
-</header>
+		</nav>
+		<!-- Logo Nav END -->
+	</header>
+<% end %>
