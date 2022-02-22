@@ -66,7 +66,7 @@ Para executar o projeto localmente, execute os seguintes comandos:
 Serão cadastrados alguns Animes de exemplo e dois usuários com os perfis de Administrador e Otaku. Credencias de acesso:
 
  - Administrador: admin@admin.com | senha: 12345678
- - Bibliotecário: otaku@user.com" | senha: 12345678
+ - Otaku: otaku@user.com" | senha: 12345678
 
 ## Executando o projeto
 Depois de instalar o projeto, execute os seguintes comandos:
@@ -81,8 +81,8 @@ A seguinte página será exibida:
 ![Tela de Login da aplicação](https://i.imgur.com/Q4emWQf.png)
 
 Acesse o sistema com um dos usuários abaixo ou se preferir acesse a opção cadastrar e faça o cadastro de um usuário otaku.
- - Administrador: admin@favoritebooks.com | senha: 12345678
- - Bibliotecário: librarian@favoriteboooks.com | senha: 12345678
+- Administrador: admin@admin.com | senha: 12345678
+- Otaku: otaku@user.com" | senha: 12345678
  
  Para ter acesso a funcionalidade de favoritar é necessário possuir um perfil de otaku. Realize o cadastro como mostra a figura abaixo. Não é necessário confirmar o e-mail, após o registro o sistema já realize o login com a conta cadastrada.
  
