@@ -9,6 +9,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "../src/header"
+import "../src/search"
 import 'bootstrap'
 
 Rails.start()
