@@ -14,4 +14,11 @@ class User < ApplicationRecord
   # Validations
   validates :name, presence: true,length: { minimum: 4, maximum: 100 }
   validates :email, presence: true,length: { minimum: 5, maximum: 100 }
+
+
+
+  def favorites
+    follows.where(favorite: true).pluck(:anime_id)
+  end
 end
+

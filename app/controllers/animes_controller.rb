@@ -2,7 +2,7 @@ class AnimesController < ApplicationController
   before_action :set_anime, only: %i[ show edit update destroy ]
 
   def index
-      @animes = Anime.where(status: "ativo")
+      @animes = current_user.admin? ?  Anime.order(id: :desc) : current_user.animes.where(status: "ativo")
   end
 
   def show

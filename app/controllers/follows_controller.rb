@@ -17,6 +17,7 @@ class FollowsController < ApplicationController
   def add_follow
     @follow = current_user.follows.new(anime_id: params[:anime_id])
     @follow.save
+    redirect_to  root_path, notice: 'follow adicionado com sucesso!'
   end
 
   def edit 
