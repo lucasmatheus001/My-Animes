@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-u = User.new(name:"Lucas", email: "admin4@admin.com", password: "12345678",password_confirmation: "12345678", role: :admin)
+u = User.new(name:"Lucas", email: "admin@admin.com", password: "12345678",password_confirmation: "12345678", role: :admin)
 u.save!
 
-o = User.new(name:"Hugo", email: "otaku444@otaku.com", password: "12345678",password_confirmation: "12345678", role: :otaku)
+o = User.new(name:"Hugo", email: "otaku@otaku.com", password: "12345678",password_confirmation: "12345678", role: :otaku)
 o.save
 
 anime1 = Anime.new(name: "One Piece", description: "Gol D. Roger was known as the Pirate King, the stron
