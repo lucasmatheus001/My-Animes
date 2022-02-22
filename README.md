@@ -65,8 +65,8 @@ Para executar o projeto localmente, execute os seguintes comandos:
 
 Serão cadastrados alguns Animes de exemplo e dois usuários com os perfis de Administrador e Otaku. Credencias de acesso:
 
- - Administrador: admin@admin.com | senha: 12345678
- - Otaku: otaku@user.com" | senha: 12345678
+  - Administrador: admin@admin.com | senha: 12345678
+  - Otaku: otaku@user.com" | senha: 12345678
 
 ## Executando o projeto
 Depois de instalar o projeto, execute os seguintes comandos:
