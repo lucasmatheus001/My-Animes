@@ -6,14 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-u = User.new(name:"Lucas", email: "admin4@admin.com", password: "12345678",password_confirmation: "12345678", role: :admin)
+u = User.new(name:"Lucas", email: "admin@admin.com", password: "12345678",password_confirmation: "12345678", role: :admin)
 u.save!
 
-o = User.new(name:"Hugo", email: "otaku444@otaku.com", password: "12345678",password_confirmation: "12345678", role: :otaku)
+o = User.new(name:"Hugo", email: "otaku@otaku.com", password: "12345678",password_confirmation: "12345678", role: :otaku)
 o.save
 
-anime1 = Anime.new(name: "One Piece", description: "Gol D. Roger was known as the Pirate King, the stron
-gest and most infamous being to have sailed the Grand Line. The capture and execution of Roger by the World Govern ment brought a change throughout the world. His last words before his death revealed the existence of the greatest treasure in the world, One Piece. It was this revelation that brought about the Grand Age of Pirates, men who dreamed of finding One Piece—which promises an unlimited amount of riches and fame—and quite possibly the pinnacle of glory and the title of the Pirate King. Enter Monkey D. Luffy, a 17-year-old boy who defies your standard definition of a pirate",image_url:"https://cdn.myanimelist.net/images/anime/6/73245.jpg",genres: "Acao e aventura",episodes: 300,studios: "Toey Animation",duration: 21, situation: "Em andamento",user_id: 2)
+anime1 = Anime.new(name: "One Piece", description: "Gol D. Roger was known as the Pirate King, the strongest and most infamous being to have sailed the Grand Line. The capture and execution of Roger by the World Govern ment brought a change throughout the world. His last words before his death revealed the existence of the greatest treasure in the world, One Piece. It was this revelation that brought about the Grand Age of Pirates, men who dreamed of finding One Piece—which promises an unlimited amount of riches and fame—and quite possibly the pinnacle of glory and the title of the Pirate King. Enter Monkey D. Luffy, a 17-year-old boy who defies your standard definition of a pirate",image_url:"https://cdn.myanimelist.net/images/anime/6/73245.jpg",genres: "Acao e aventura",episodes: 300,studios: "Toey Animation",duration: 21, situation: "Em andamento",user_id: 2)
 
 anime1.save
 

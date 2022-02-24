@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'animes#index'
   # resources :follows
-  resources :animes
+  resources :animes do
+    collection do
+      get 'search'
+    end
+  end
   resources :users
 
   resources :follows do 
