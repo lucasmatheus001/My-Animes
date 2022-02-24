@@ -2,7 +2,8 @@ class AnimesController < ApplicationController
   before_action :set_anime, only: %i[ show edit update destroy ]
 
   def index
-      @animes = current_user.admin? ?  Anime.order(id: :desc) : current_user.animes.where(status: "ativo")
+    #   @animes = current_user.admin? ?  Anime.order(id: :desc) : current_user.animes.where(status: "ativo")
+    @animes = Anime.where(status: "ativo")
   end
 
   def show
@@ -37,6 +38,17 @@ class AnimesController < ApplicationController
     #   @anime.destroy
         @anime.update(status: "excluido")
       redirect_to animes_path
+  end
+
+  def search
+    result = Anime.anime_search(params[:q])
+    # puts result.class
+    @animes = result.map do |anime|
+      Anime.new_from_search(anime)
+    end
+    pp @animes
+    # render json: @animes
+
   end
 
   private

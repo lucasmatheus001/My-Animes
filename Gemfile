@@ -69,7 +69,7 @@ gem 'devise'
 
 gem 'enum'
 gem 'httparty'
-
+gem 'rest-client'
 
 
 

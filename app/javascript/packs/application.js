@@ -11,6 +11,9 @@ import "channels"
 import "../src/header"
 import "../src/search"
 import 'bootstrap'
+import $ from 'jquery';
+global.$ = $;
+global.jQuery - $;
 
 Rails.start()
 Turbolinks.start()
