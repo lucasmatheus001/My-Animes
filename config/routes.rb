@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # resources :follows
   resources :animes do
     collection do
+      get 'all'
       get 'search'
     end
   end
