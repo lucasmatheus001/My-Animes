@@ -18,7 +18,7 @@ Este é uma sistema para gerenciamento de animes , podendo o usuário salvar os 
  4. PostgreSQL
  5. Bootstrap 5
  6. Devise
- 7. Enumerize
+ 7. Enum
  8. Testes(Rspec, simpleCov, FactoryBot, Faker)
  
 ## Principais funcionalidades
@@ -26,14 +26,14 @@ Este é uma sistema para gerenciamento de animes , podendo o usuário salvar os 
  - [x] Cadastro de usuário (perfil padrão *read*);
  - [x] Login;
  - [x] CRUD de usuários (apenas para *admin*);
- - [x] CRUD de animes (*admin* e *librarian*);
- - [x] Favoritar anime (*read*);
- - [x] DesFavoritar anime (*read*);
- - [x] Seguir anime (*read*);
- - [x] Deixar de seguir anime (*read*);
- - [x] Listar animes (*read*);
- - [x] Listar animes favoritos (*read*);
- - [x] Listar animes seguidos (*read);
+ - [x] CRUD de animes (*admin*);
+ - [x] Favoritar anime (*otaku*);
+ - [x] DesFavoritar anime (*otaku*);
+ - [x] Seguir anime (*otaku*);
+ - [x] Deixar de seguir anime (*otaku*);
+ - [x] Listar animes (*otaku*);
+ - [x] Listar animes favoritos (*otaku*);
+ - [x] Listar animes seguidos (*otaku);
 
 ## Pendências
 
@@ -62,6 +62,7 @@ Para executar o projeto localmente, execute os seguintes comandos:
     yarn install
     rails db:create
     rails db:migrate
+    rails db:seed (para popular o banco de dados)
 
 Serão cadastrados alguns Animes de exemplo e dois usuários com os perfis de Administrador e Otaku. Credencias de acesso:
 
@@ -86,14 +87,13 @@ Acesse o sistema com um dos usuários abaixo ou se preferir acesse a opção cad
  
  Para ter acesso a funcionalidade de favoritar é necessário possuir um perfil de otaku. Realize o cadastro como mostra a figura abaixo. Não é necessário confirmar o e-mail, após o registro o sistema já realize o login com a conta cadastrada.
  
-Por fim, a tela inicial do sistema é uma listagem com todos os Animes cadastrados no sistema. Ele também possuí uma opção para listar apenas os animes da sua lista favoritados ou seguidos pelo usuário.
-
+Por fim, a tela inicial do sistema é uma listagem com todos os Animes favoritados ou seguidos pelo usuário: Otaku. Ele também possuí uma rota /animes para acessar todos os animes cadastrados na aplicação.
 
 
 ## Executando testes
 
     
-    rails db:migrate RAILS_ENV=test
+    rails db:migrate RAILS_ENV=test (executa as migration pra criar os models para testes)
     rspec 
 Será gerado as migration dos models dos testes existentes e em seguida alguns testes serão rodados.
     
