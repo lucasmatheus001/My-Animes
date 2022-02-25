@@ -29,7 +29,7 @@ class FollowsController < ApplicationController
   def remove_follow
     @follow = current_user.follows.find_by(id: params[:id])
     @follow.destroy
-    redirect_to follows_path, notice: 'follow removido com sucesso!'
+    # redirect_to follows_path, notice: 'follow removido com sucesso!'
     @follow.inspect
   end
 

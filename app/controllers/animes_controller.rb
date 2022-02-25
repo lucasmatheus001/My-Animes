@@ -13,6 +13,10 @@ class AnimesController < ApplicationController
       @animes = Anime.all
   end
 
+  def result
+    @animes = Anime.all
+  end
+
   def new
       @anime = Anime.new
   end

@@ -1,0 +1,28 @@
+<div class="tab-pane fade show active" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
+    <div class="row g-4">
+        <% animes.each do |anime| %>
+            <!-- Card item START -->
+            <div class="col-sm-6 col-lg-4 col-xl-3">
+                <div class="card shadow h-100">
+                    <%= link_to(anime) do %>
+                        <!-- Image -->
+                        <img src="<%=anime.image_url%>" class="card-img-top" alt="course image">
+                        <!-- Card body -->
+                        <div class="card-body pb-0">
+                            <!-- Title -->
+                            <h5 class="card-title fw-normal"><a href="#"><%= anime.name%></a></h5>
+                            <p class="icons-position">
+                                <%= link_to(add_follows_path(anime_id: anime.id),method: :post,remote: true) do%>
+                                    <i class="<%= current_user.animes.include?(anime) ? "fas" : "far" %> fa-heart fa-2x"></i>
+                                <% end%>
+                                <%= link_to(add_favorite_follows_path(anime_id: anime.id),method: :post,remote: true) do%>
+                                    <i class="<%= current_user.favorites.include?(anime.id) ? "fas" : "far" %> fa-star fa-2x"></i>
+                                <% end%>
+                            </p>
+                        </div>
+                    <%end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
