@@ -140,54 +140,86 @@ Main Banner START -->
 				</h1>
 				
 
-				
+				<div class="d-sm-flex align-items-center justify-content-center justify-content-lg-start">
+					<!-- Button -->
+					
+					<!-- Video button -->
+          <a data-glightbox="" data-gallery="office-tour" href="https://www.youtube.com/embed/tXHviS-4ygo" class="ms-0 ms-sm-4 d-block">
+						
+						<div class="align-middle d-inline-block">
+							
+						</div>
+					</a>
+				</div>
 			</div>
+			<!-- Left content END -->
+
+			<!-- Right content START -->
+			
+			<!-- Right content END -->
 		</div>
 	</div>
 	<!-- Content END -->
 </section>
-<!-- =======================
-Main Banner END -->
 
-<!-- =======================
-Counter START -->
-<section class="py-0 py-xl-5">
-	<div class="container">
-		
-	</div>
-</section>
+
 
 <section>
 	<div class="container">
 		<!-- Title -->
-		<div class="row mb-4">
-			<div class="col-lg-8 mx-auto text-center">
-				<h2 class="fs-1">Seus Animes Seguidos</h2>
+		<div class="row mb-4 d-flex title ">
+			<div class="col-lg-8 mx-auto text-center"><h2 class="fs-1 title">Animes Cadastrados</h2></div>
+			<div class="ms-auto p-2 bd-highlight">
+				<%= link_to(new_anime_path,class: "title-style") do %>
+				<button type="button" class="btn btn-success button-anime">Cadastrar Anime</button>
+				<% end %>
 			</div>
 		</div>
+		
+		
+
+
+		<!-- Tabs content START -->
 		<div class="tab-content" id="course-pills-tabContent">
 			<!-- Content START -->
 			<div class="tab-pane fade show active" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
-			<div class="row g-4">
-				<% @follows.each do |follow| %>
-					<!-- Card item START -->
-					<div class="col-sm-6 col-lg-4 col-xl-3">
-						<div class="card shadow h-100">
-							<%= link_to(follow.anime) do %>
-								<img src="<%=follow.anime.image_url%>" class="card-img-top" alt="course image">
+				<div class="row g-4">
+					<% @animes.each do |anime| %>
+						<!-- Card item START -->
+						<div class="col-sm-6 col-lg-4 col-xl-3">
+							<div class="card shadow h-100">
+								<%= link_to(anime) do %>
+								<!-- Image -->
+								<img src="<%=anime.image_url%>" class="card-img-top" alt="course image">
 								<!-- Card body -->
 								<div class="card-body pb-0">
-									<h5 class="card-title fw-normal"><a href="#"><%= follow.anime.name%></a></h5>
-									<p>
-										<%= link_to("Deletar",remove_follows_path(follow),method: :delete,data: {confirm: "Are you sure?"})%>
+									<!-- Badge and favorite -->
+									
+									<!-- Title -->
+									<h5 class="card-title fw-normal"><a href="#"><%= anime.name%></a></h5>
+									<p class="icons-position">
+										<%= link_to(add_follows_path(anime_id: anime.id),method: :post,remote: true) do%>
+											<i class="<%= current_user.animes.include?(anime) ? "fas" : "far" %> fa-heart fa-2x"></i>
+										<% end%>
+										<%= link_to(add_favorite_follows_path(anime_id: anime.id),method: :post,remote: true) do%>
+											<i class="<%= current_user.favorites.include?(anime.id) ? "fas" : "far" %> fa-star fa-2x"></i>
+										<% end%>
 									</p>
+									<!-- Rating star -->
+									
 								</div>
 								<!-- Card footer -->
+								
+							</div>
 							<%end %>
 						</div>
-					</div>
-				<% end %>
-			</div> 
+					<% end %>
+					<!-- Card item END -->
+
+				</div> <!-- Row END -->
+			</div>
+			<!-- Content END -->
 		</div>
+		<!-- Tabs content END -->
 	</div>
 </section>

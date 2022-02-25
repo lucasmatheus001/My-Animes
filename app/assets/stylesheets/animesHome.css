@@ -671,6 +671,31 @@ p.icons-position {
     margin: 20px;
 }
 
+i.fas.fa-heart.fa-2x {
+    color: red;
+}
+
+i.far.fa-heart.fa-2x {
+    color: red;
+}
+
+i.far.fa-star.fa-2x {
+    color: #e3e33c;
+}
+i.fas.fa-star.fa-2x {
+    color: #e3e33c;
+}
+
+.row.mb-4.title {
+    margin-top: 140px;
+}
+
+button.btn.btn-success.button-anime {
+    float: right;
+    color: #fff!important;
+}
+
+
 
 
 

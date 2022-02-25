@@ -2,8 +2,11 @@ class AnimesController < ApplicationController
   before_action :set_anime, only: %i[ show edit update destroy ]
 
   def index
-    #   @animes = current_user.admin? ?  Anime.order(id: :desc) : current_user.animes.where(status: "ativo")
-    @animes = Anime.where(status: "ativo")
+      @animes = current_user.admin? ?  Anime.order(id: :desc) : current_user.animes.where(status: "ativo")
+  end
+
+  def all
+    @animes = current_user.admin? ?  Anime.order(name: :asc) : Anime.where(status: "ativo").order(name: :asc)
   end
 
   def show
@@ -50,6 +53,7 @@ class AnimesController < ApplicationController
     # render json: @animes
 
   end
+
 
   private
 

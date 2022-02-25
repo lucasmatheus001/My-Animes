@@ -6,7 +6,6 @@ $( document ).ready(async function() {
       // let result = await getAllTracksAndArtist()
       // let tracks = result.tracks
       // tracks.data.map(track => renderTrack(track))
-      buttonSearch
       $("#inputSearch").on("change", function() {
         let search = $(this).val();
         $.ajax({

@@ -1,6 +1,6 @@
 
 
 <% @animes.each do |anime| %>
-$(".search-box").append('<div class="search-image"><img class="image img-fluid" src="<%= anime.image_url%>" style="height: 79px;"><%= anime.name %></div>');
+$(".search-box").append('<%= link_to(anime) do %><div class="search-image"><img class="image img-fluid" src="<%= anime.image_url%>" style="height: 79px;"><%= anime.name %></div><% end %>');
 console.log('<%= anime.name %>');
 <% end %>
