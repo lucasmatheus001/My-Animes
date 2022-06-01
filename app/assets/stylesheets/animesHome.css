@@ -703,6 +703,34 @@ button.btn.btn-success.button-anime {
     text-align: center;
 }
 
+/* dimension image box */
+.card-img-top {
+    max-width: 100%;
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* caixa de pesquisa API */
+div#track_list {
+    background: aqua;
+    position: absolute;
+}
+
+.search-image {
+    padding: 10px 12px;
+}
+
+.search-image img {
+    height: 100px;
+    width: 70px;
+    object-fit: cover;
+}
+
+/* fim */
+
+
+
 
 
 
