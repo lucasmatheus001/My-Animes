@@ -1,3 +1,5 @@
 web: bundle exec puma -C config/puma.rb
 webpacker: ./bin/webpack-dev-server
-log: tail -f log/development.log
+log: tail -f log/development.logcss: yarn watch:css
+css: yarn watch:css
+css: yarn watch:css
