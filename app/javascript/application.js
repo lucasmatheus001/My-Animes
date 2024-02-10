@@ -8,12 +8,13 @@ import "@fortawesome/fontawesome-free/css/all"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import "../src/header"
-import "../src/search"
+import "./src/header"
+import "./src/search"
 import 'bootstrap'
 import $ from 'jquery';
 import "@hotwired/turbo-rails";
 import "controllers";
+import '../assets/stylesheets/application'
 global.$ = $;
 global.jQuery - $;
 
