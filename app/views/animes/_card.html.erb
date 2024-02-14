@@ -1,28 +1,32 @@
-<div class="tab-pane fade show active" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
-    <div class="row g-4">
-        <% animes.each do |anime| %>
-            <!-- Card item START -->
-            <div class="col-sm-6 col-lg-4 col-xl-3">
-                <div class="card shadow h-100">
-                    <%= link_to(anime) do %>
-                        <!-- Image -->
-                        <img src="<%=anime.image_url%>" class="card-img-top" alt="course image">
-                        <!-- Card body -->
-                        <div class="card-body pb-0">
-                            <!-- Title -->
-                            <h5 class="card-title fw-normal"><a href="#"><%= anime.name%></a></h5>
-                            <p class="icons-position">
-                                <%= link_to(add_follows_path(anime_id: anime.id),method: :post,remote: true) do%>
-                                    <i class="<%= current_user.animes.include?(anime) ? "fas" : "far" %> fa-heart fa-2x"></i>
-                                <% end%>
-                                <%= link_to(add_favorite_follows_path(anime_id: anime.id),method: :post,remote: true) do%>
-                                    <i class="<%= current_user.favorites.include?(anime.id) ? "fas" : "far" %> fa-star fa-2x"></i>
-                                <% end%>
-                            </p>
-                        </div>
-                    <%end %>
+<div class="row d-flex justify-content-center">
+    <div class="header-box-container col-sm-3">
+        <div class="header-icons ">
+            <p class="text-icons icon-arrow">
+                <%= link_to(animes_path) do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"></path>
+                    </svg>
+                <% end %>
+            </p>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="detail">
+            <h1 class="detail--title"> <%= anime["title"] %></h1>
+            <div class="icon-content">
+                
+            </div>
+            <div class="detail--main-content" >
+                <img src="<%= anime["images"]["jpg"]["image_url"] %>" alt="image" class="media-poster">
+                <div class="detail--main-content--synopsis">
+                    <div class="detail--main-content--genres">
+                        <strong>Synopsis:</strong>
+                        <span class="detail--main-content--synopsis--content"><%= anime["description"] %></span>
+                    </div>
+                   
                 </div>
             </div>
-        <% end %>
+        </div>
     </div>
 </div>

@@ -15,16 +15,8 @@ ActiveRecord::Schema[7.1].define(version: 2022_02_18_185025) do
   enable_extension "plpgsql"
 
   create_table "animes", force: :cascade do |t|
+    t.string "anime_id"
     t.bigint "user_id", null: false
-    t.string "name", null: false
-    t.string "description", null: false
-    t.string "image_url", null: false
-    t.string "genres", null: false
-    t.integer "episodes", null: false
-    t.integer "status", default: 0
-    t.string "studios", null: false
-    t.integer "duration", null: false
-    t.string "situation", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_animes_on_user_id"

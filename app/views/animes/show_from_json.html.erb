@@ -1,0 +1,15 @@
+<!-- app/views/animes/show_from_json.html.erb -->
+<% if @anime_data.present? %>
+  <h1><%= @anime_data[:title] %></h1>
+  <p><strong>Descrição:</strong> <%= @anime_data[:synopsis] %></p>
+  <%= image_tag @anime_data[:images][:jpg][:image_url], alt: "Imagem do Anime", size: "300x300" %>
+
+  <%= form_with(model: @anime, url: cadastrar_anime_from_json_animes_path(anime: @anime_data.to_json), method: :post) do |form| %>
+    <%= form.hidden_field :anime_id, value: @anime_data[:mal_id] %>
+
+    <%= form.submit 'Cadastrar este Anime' %>
+  <% end %>
+
+<% else %>
+  <p>Nenhum anime encontrado.</p>
+<% end %>

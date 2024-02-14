@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
   get 'follows/index'
+  get '/animes', to: 'animes#index'
+  get '/animes/busca', to: 'animes#busca', as: 'busca_animes'
+  get "/animes/render_anime_partial", to: "animes#render_anime_partial"
+  post '/animes/cadastrar_anime_from_json', to: 'animes#cadastrar_anime_from_json', as: 'cadastrar_anime_from_json_animes'
+
+
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'animes#index'
-  # resources :follows
+
   resources :animes do
-    collection do
-      get 'all'
-      get 'search'
-    end
+    get 'show_from_json', on: :collection
   end
+
+  # resources :follows
+ 
   resources :users
 
   resources :follows do 
