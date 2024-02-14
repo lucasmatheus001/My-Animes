@@ -1,3 +1,7 @@
+<%= form_tag busca_animes_path, method: :get,  remote: true do %>
+  <%= text_field_tag :q, params[:q], placeholder: "Digite para buscar..." %>
+  <%= submit_tag "Buscar" %>
+<% end %>
 <section class="position-relative overflow-hidden pt-5 pt-lg-3">
 	<!-- Content START -->
 	<div class="container background">
@@ -21,7 +25,21 @@
 
 		<!-- Cards content START -->
 		<div class="tab-content" id="course-pills-tabContent">
-			<%= render 'card', animes: @animes %>
+			<%# <%= render 'card', anime: @detalhes_animes %>
+
+			<% @detalhes_animes.each do |anime| %>
+    <div class="anime-result">
+      <h2><%= anime["title"] %></h2>
+      <% if anime["images"] && anime["images"]["jpg"] && anime["images"]["jpg"]["image_url"].present? %>
+        <%= image_tag anime["images"]["jpg"]["image_url"], alt: "Imagem do Anime", size: "100x100" %>
+        <% anime[:mal_id] %>
+        <%= link_to "Ver Detalhes", show_from_json_animes_path(anime: anime.to_json), class: "show-anime-link" %>
+      <% else %>
+        <p><em>Nenhuma imagem disponível</em></p>
+      <% end %>
+    </div>
+  <% end %>
+			
 		</div>
 	</div>
 </section>
