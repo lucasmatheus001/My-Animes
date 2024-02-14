@@ -25,20 +25,7 @@
 
 		<!-- Cards content START -->
 		<div class="tab-content" id="course-pills-tabContent">
-			<%# <%= render 'card', anime: @detalhes_animes %>
-
-			<% @detalhes_animes.each do |anime| %>
-    <div class="anime-result">
-      <h2><%= anime["title"] %></h2>
-      <% if anime["images"] && anime["images"]["jpg"] && anime["images"]["jpg"]["image_url"].present? %>
-        <%= image_tag anime["images"]["jpg"]["image_url"], alt: "Imagem do Anime", size: "100x100" %>
-        <% anime[:mal_id] %>
-        <%= link_to "Ver Detalhes", show_from_json_animes_path(anime: anime.to_json), class: "show-anime-link" %>
-      <% else %>
-        <p><em>Nenhuma imagem disponível</em></p>
-      <% end %>
-    </div>
-  <% end %>
+		  <%= render 'card', animes: @detalhes_animes %>
 			
 		</div>
 	</div>
