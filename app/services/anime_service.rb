@@ -29,8 +29,15 @@ class AnimeService
     end
   
     def obter_detalhes_do_anime(anime_id)
-      response = self.class.get("/anime/#{anime_id}")
-  
+      sleep(1)
+      response = nil
+      begin
+        response = self.class.get("/anime/#{anime_id}", timeout: 10) # Set the timeout value in seconds
+      rescue Net::HTTPTooManyRequests
+        sleep(10) # Wait for 5 seconds before making the request again
+        retry
+      end
+
       if response.success?
         return JSON.parse(response.body)["data"]
       else
