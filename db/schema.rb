@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2022_02_18_185025) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_26_025533) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,26 @@ ActiveRecord::Schema[7.1].define(version: 2022_02_18_185025) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_animes_on_user_id"
+  end
+
+  create_table "comment_responses", force: :cascade do |t|
+    t.string "content", default: ""
+    t.bigint "user_id", null: false
+    t.bigint "comment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_responses_on_comment_id"
+    t.index ["user_id"], name: "index_comment_responses_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content", default: ""
+    t.bigint "user_id", null: false
+    t.bigint "anime_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["anime_id"], name: "index_comments_on_anime_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "follows", force: :cascade do |t|
@@ -47,6 +67,10 @@ ActiveRecord::Schema[7.1].define(version: 2022_02_18_185025) do
   end
 
   add_foreign_key "animes", "users"
+  add_foreign_key "comment_responses", "comments"
+  add_foreign_key "comment_responses", "users"
+  add_foreign_key "comments", "animes"
+  add_foreign_key "comments", "users"
   add_foreign_key "follows", "animes"
   add_foreign_key "follows", "users"
 end

@@ -1,0 +1,19 @@
+<div class="row d-flex justify-content-center">
+  <div class="page-content">
+    <div class="detail">     
+      <div class="detail--main-content" >
+        <div class="detail--main-content--synopsis">
+          <% if comment_responses.present? %>
+            <% comment_responses.each do |response| %>
+              <div class="detail--main-content--genres">
+                <strong>Resposta:</strong>
+                <span class="detail--main-content--synopsis--content" style="color: red;"><%= response.user_id %></span>
+                <span class="detail--main-content--synopsis--content" style="color: red;"><%= response.content %></span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>               
+    </div>
+  </div>
+</div>

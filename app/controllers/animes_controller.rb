@@ -49,6 +49,13 @@ class AnimesController < ApplicationController
 
   def show_from_json
     @anime_data = JSON.parse(params[:anime], symbolize_names: true)
+    @anime_comment = @anime_data[:mal_id]
+    @animess = Anime.find_by(anime_id: @anime_comment)
+    @comment = Comment.new
+    if @animess != nil
+      @comments = Comment.where(anime_id: @animess.id)
+      @comment_responses = CommentResponse.joins(comment: :anime).where(comments: { anime_id: @animess.id })
+    end
   end
 
   def cadastrar_anime_from_json
@@ -120,7 +127,6 @@ class AnimesController < ApplicationController
     @animes2 = animes
     @animes2.each do |anime|
       detalhes_animes << @api_service.obter_detalhes_do_anime(anime.anime_id)
-
     end
     detalhes_animes
   end
