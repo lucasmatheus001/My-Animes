@@ -40,10 +40,26 @@
                         <strong>Situação: </strong>
                         <span class="detail--main-content--genre"> <%= anime[:status] %></span>
                     </div>
-										<%= form_with(model: @anime, url: cadastrar_anime_from_json_animes_path(anime: @anime_data.to_json), method: :post) do |form| %>
-											<%= form.hidden_field :anime_id, value: @anime_data[:mal_id] %>
-											<%= form.submit 'Cadastrar este Anime',class: "primary" %>
-										<% end %>
+                    <%= form_with(model: @anime, url: cadastrar_anime_from_json_animes_path(anime: @anime_data.to_json), method: :post) do |form| %>
+                        <%= form.hidden_field :anime_id, value: @anime_data[:mal_id] %>
+                        <%= form.submit 'Cadastrar este Anime',class: "primary" %>
+                    <% end %>
+                    < 
+                    <!-- Mais detalhes do anime -->
+                    <!-- Formulário para cadastrar um comentário -->
+                    <% if @animess.present? %>
+                        <%= form_with(model: Comment.new, url: anime_comments_path(@animess.id), method: :post) do |form| %>
+                        <%= form.hidden_field :user_id, value: current_user.id %>
+                        <%= form.hidden_field :anime_id, value: @animess.id %>
+                        <div class="field">
+                            <%= form.label :content, "Comentário" %>
+                            <%= form.text_area :content, rows: 4 %>
+                        </div>
+                        <div class="actions">
+                            <%= form.submit "Enviar Comentário" %>
+                        </div>
+                        <% end %>
+                    <% end %>
                 </div>
             </div>
         </div>

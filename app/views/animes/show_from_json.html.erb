@@ -2,6 +2,9 @@
     <div class="header-container">
        <% if @anime_data.present? %>
         <%= render 'anime', anime: @anime_data %>
+         <% if @comments.present? %>
+          <%= render 'comments', comments: @comments%>
+        <% end %>
       <% else %>
         <p>Nenhum anime encontrado.</p>
       <% end %>

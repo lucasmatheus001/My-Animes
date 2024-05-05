@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comment_response/index'
+  get 'comments/index'
   get 'follows/index'
   get '/animes', to: 'animes#index'
   get '/animes/busca', to: 'animes#busca', as: 'busca_animes'
@@ -12,12 +14,13 @@ Rails.application.routes.draw do
 
   resources :animes do
     get 'show_from_json', on: :collection
+    resources :comments
+    resources :comment_responses
   end
 
   # resources :follows
  
   resources :users
-
   resources :follows do 
     collection do
       get 'favorites', as: :favorites
